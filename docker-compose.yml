@@ -1,0 +1,18 @@
+version: '2.1'
+
+services:
+  master:
+    build: ./master
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    environment:
+      JENKINS_OPTS: "--prefix=/my-site"
+    ports:
+       - "8080:8080"
+       - "50000:50000"
+  docker-host:
+    build: ./docker-host
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+volumes:
+  jenkins_home:

@@ -8,7 +8,7 @@
 
 
 ```
-./slave/init.sh
+./init.sh
 docker-compose build
 docker-compose up -d
 ```

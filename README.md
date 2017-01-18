@@ -46,14 +46,14 @@ docker-compose exec master cat /var/jenkins_home/secrets/initialAdminPassword
 <dt> ユーザー名</dt>
 <dd> root</dd>
 <dt>秘密鍵</dt>
- <dd>Jenkinsマスター上のファイルから</dd>
+<dd>Jenkinsマスター上のファイルから</dd>
 <dt> ファイル </dt>
- <dd>```/var/key```</dd>
+<dd>/var/key</dd>
 </dl>
 
 その他は空白でok
 
-
+※鍵は ```slave/id_key``` をdocker-composeで起動時に```/var/key``` にマウントしてます。
 
 ## スレーブの登録
 
@@ -69,11 +69,11 @@ Permanent Agent にチェック入れてok
 <dt>ラベル</dt>
 <dd>ジョブを実行するノードを指定するのに使用します。にここではdocker-hostと入れておきます。</dd>
 <dt>起動方法<dt>
-<dd> SSH経由でUnixマシンのスレーブエージェントを起動</dd>
+<dd>SSH経由でUnixマシンのスレーブエージェントを起動</dd>
 <dt>ホスト<dt>
-<dd> slave (docker-composeのmasterにリンクした名前です)</dd>
+<dd>slave (docker-composeのmasterにリンクした名前です)</dd>
 <dt>認証情報</dt>
-<dd>: 先に作成した`root`を選択</dd>
+<dd>先に作成した`root`を選択</dd>
 </dl>
 
 保存を押すと、slaveにエージェントのインストールが開始され、数分のうちに利用可能になります

@@ -5,11 +5,14 @@ services:
     build: ./master
     volumes:
       - jenkins_home:/var/jenkins_home
+      - ./docker-host/id_key:/var/key
     environment:
       JENKINS_OPTS: "--prefix=/my-site"
     ports:
        - "8080:8080"
        - "50000:50000"
+    links:
+      - docker-host
   docker-host:
     build: ./docker-host
     volumes:

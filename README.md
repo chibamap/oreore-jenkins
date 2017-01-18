@@ -38,11 +38,17 @@ docker-compose exec master cat /var/jenkins_home/secrets/initialAdminPassword
 
 認証情報一覧が出るので、ドメインが `(global)` となっているところに登録します。
 
-種類: SSHユーザー名と秘密鍵
-スコープ: グローバル
-ユーザー名: root
-秘密鍵: Jenkinsマスター上のファイルから
-ファイル: /var/key
+- 種類
+ SSHユーザー名と秘密鍵
+
+- スコープ
+ グローバル
+- ユーザー名
+ root
+- 秘密鍵
+ Jenkinsマスター上のファイルから
+- ファイル
+ ```/var/key```
 
 その他は空白でok
 
@@ -53,6 +59,7 @@ docker-compose exec master cat /var/jenkins_home/secrets/initialAdminPassword
 左メニュー「Jenkinsの管理」 > ノードの管理 > 左メニュー「新規ノードの作成」
 
 ノード名に 適当にわかり易い名前、ここではslave1とします。
+
 Permanent Agent にチェック入れてok
 
 
@@ -61,7 +68,9 @@ Permanent Agent にチェック入れてok
 ラベル: ジョブを実行するノードを指定するのに使用します。にここではdocker-hostと入れておきます。
 
 起動方法: SSH経由でUnixマシンのスレーブエージェントを起動
+
 ホスト: slave (docker-composeのmasterにリンクした名前です)
+
 認証情報: 先に作成した`root`を選択
 
 保存を押すと、slaveにエージェントのインストールが開始され、数分のうちに利用可能になります

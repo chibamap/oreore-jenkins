@@ -38,17 +38,18 @@ docker-compose exec master cat /var/jenkins_home/secrets/initialAdminPassword
 
 認証情報一覧が出るので、ドメインが `(global)` となっているところに登録します。
 
-- 種類
- SSHユーザー名と秘密鍵
-
-- スコープ
- グローバル
-- ユーザー名
- root
-- 秘密鍵
- Jenkinsマスター上のファイルから
-- ファイル
- ```/var/key```
+<dl>
+<dt>種類</dt>
+<dd>SSHユーザー名と秘密鍵</dd>
+<dt>スコープ</dt>
+<dd> グローバル</dd>
+<dt> ユーザー名</dt>
+<dd> root</dd>
+<dt>秘密鍵</dt>
+ <dd>Jenkinsマスター上のファイルから</dd>
+<dt> ファイル </dt>
+ <dd>```/var/key```</dd>
+</dl>
 
 その他は空白でok
 
@@ -62,16 +63,18 @@ docker-compose exec master cat /var/jenkins_home/secrets/initialAdminPassword
 
 Permanent Agent にチェック入れてok
 
-
-リモートFSルート: とりあえず ```/var/tmp``` を入力しておきます。 お好みの環境に合わせてください。
-
-ラベル: ジョブを実行するノードを指定するのに使用します。にここではdocker-hostと入れておきます。
-
-起動方法: SSH経由でUnixマシンのスレーブエージェントを起動
-
-ホスト: slave (docker-composeのmasterにリンクした名前です)
-
-認証情報: 先に作成した`root`を選択
+<dl>
+<dt>リモートFSルート</dt>
+<dd>とりあえず ```/var/tmp``` を入力しておきます。 お好みの環境に合わせてください。</dd>
+<dt>ラベル</dt>
+<dd>ジョブを実行するノードを指定するのに使用します。にここではdocker-hostと入れておきます。</dd>
+<dt>起動方法<dt>
+<dd> SSH経由でUnixマシンのスレーブエージェントを起動</dd>
+<dt>ホスト<dt>
+<dd> slave (docker-composeのmasterにリンクした名前です)</dd>
+<dt>認証情報</dt>
+<dd>: 先に作成した`root`を選択</dd>
+</dl>
 
 保存を押すと、slaveにエージェントのインストールが開始され、数分のうちに利用可能になります
 

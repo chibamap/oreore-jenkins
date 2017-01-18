@@ -1,4 +1,4 @@
-FROM alpine:3.5
+FROM openjdk:8-jdk-alpine
 
 RUN apk add --update bash docker openssh
 

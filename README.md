@@ -7,6 +7,8 @@
 
 ![overview-diagram](doc/overview.png)
 
+タスク依存ライブラリはslaveに固めましょうって思想です。
+
 # RUN
 
 ## jenkin 起動
